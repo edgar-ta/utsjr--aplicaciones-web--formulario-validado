@@ -1,0 +1,67 @@
+<%- include("./templates/header"); %>
+
+<link rel="stylesheet" href="/css/student-data.css">
+<link rel="stylesheet" href="/css/submit-input.css">
+<main class="main">
+
+<% 
+    const formatTwoDigits = (number) => {
+        number = number % 100;
+        if (number < 10) return "0" + number;
+        return "" + number;
+    };
+    
+    %>
+
+    <p class="large-font-size">
+        Los datos capturados son:
+    </p>
+    <div class="large-font-size">
+        Al alumno 
+        <div class="named-content">
+            <span class="named-content__name">NOMBRE</span>
+            <span class="named-content__content">
+                <%- name %>
+            </span> 
+        </div>
+        del grupo 
+        <div class="whole-group-container">
+            <div class="named-content">
+                <span class="named-content__name">CARRERA</span>
+                <span class="named-content__content">
+                    <%- career.toUpperCase() %>
+                </span>
+            </div>
+            <div class="named-content">
+                <span class="named-content__name">GRUPO</span>
+                <span class="named-content__content">
+                    <%- formatTwoDigits(group) %>
+                </span>
+            </div>
+            <div class="named-content">
+                <span class="named-content__name">AÑO</span>
+                <span class="named-content__content">
+                    <%- formatTwoDigits(year) %>
+                </span>
+            </div>
+        </div>
+        del 
+        <div class="named-content">
+            <span class="named-content__name">CUATRIMESTRE</span>
+            <span class="named-content__content"><%- period %>°</span>
+        </div>
+        cuatrimestre le faltan
+        <%- 11 - period %>
+        cuatrimestres para terminar la carrera.
+    </div>
+
+    <form class="form" action="/datosNuevo/<%- name %>/<%- career %>/<%- group %>/<%- year %>/<%- period %>" >
+        <div class="submit-input-container">
+            <button type="submit" class="form-input form-input--submit">
+                Enviar
+            </button>
+        </div>
+    </form>
+</main>
+
+<%- include("./templates/footer"); %>

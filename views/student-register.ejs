@@ -1,0 +1,49 @@
+<%- include("./templates/header"); %>
+
+<link rel="stylesheet" href="/css/student-register.css">
+
+<main>
+    <p class="large-font-size">
+        El estudiante fue registrado de manera exitosa.
+    </p>
+    <p class="large-font-size">
+        Los datos capturados son: 
+    </p>
+    <table class="table large-font-size">
+        <thead>
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Carrera 
+                </th>
+                <th>
+                    Grupo 
+                </th>
+                <th>
+                    Año
+                </th>
+                <th>
+                    Cuatrimestre
+                </th>
+                <th>
+                    Cuatrimestres faltantes
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><%- name %></td>
+                <td><%- career %></td>
+                <td><%- group %></td>
+                <td><%- year %></td>
+                <td><%- period %></td>
+                <td><%- 11 - period %></td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+
+<%- include("./templates/footer"); %>
+
